@@ -1,0 +1,42 @@
+C:/Users/iraje/Downloads/lab2_ir/source/impl_1/scanning.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/iraje/Downloads/lab2_ir/source/impl_1/scanning.sv
+Questa Altera Starter FPGA Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/iraje/Downloads/lab2_ir/lab2_ir_testing.mpf' is used as the ini file.
+-- Compiling module scanning
+
+Top level modules:
+	scanning
+
+} {} {}} C:/Users/iraje/Downloads/lab2_ir/source/impl_1/top_testbench.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/iraje/Downloads/lab2_ir/source/impl_1/top_testbench.sv
+Questa Altera Starter FPGA Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/iraje/Downloads/lab2_ir/lab2_ir_testing.mpf' is used as the ini file.
+-- Compiling module top_testbench
+
+Top level modules:
+	top_testbench
+
+} {} {}} C:/Users/iraje/Downloads/lab2_ir/source/impl_1/top.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/iraje/Downloads/lab2_ir/source/impl_1/top.sv
+Questa Altera Starter FPGA Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/iraje/Downloads/lab2_ir/lab2_ir_testing.mpf' is used as the ini file.
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} C:/Users/iraje/Downloads/lab2_ir/source/impl_1/sevensegment.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/iraje/Downloads/lab2_ir/source/impl_1/sevensegment.sv
+Questa Altera Starter FPGA Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/iraje/Downloads/lab2_ir/lab2_ir_testing.mpf' is used as the ini file.
+-- Compiling module sevensegment
+
+Top level modules:
+	sevensegment
+
+} {} {}} C:/Users/iraje/Downloads/lab2_ir/source/impl_1/counter.sv {2 {vlog -work work -vopt -sv -stats=none C:/Users/iraje/Downloads/lab2_ir/source/impl_1/counter.sv
+Questa Altera Starter FPGA Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/iraje/Downloads/lab2_ir/lab2_ir_testing.mpf' is used as the ini file.
+-- Compiling module counter
+** Warning: C:/Users/iraje/Downloads/lab2_ir/source/impl_1/counter.sv(20): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	counter
+
+} {} {}}
