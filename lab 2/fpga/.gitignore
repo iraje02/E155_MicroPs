@@ -1,4 +1,3 @@
-# Lattice Radiant files
 *.html
 /impl*/
 *.xml
