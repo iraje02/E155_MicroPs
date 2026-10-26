@@ -107,7 +107,17 @@ module aes_controller(input logic clk,
 			DONE: nextstate = DONE;
 			default: nextstate = LOAD;
 		endcase
-	
+
+	// round counter
+    always_ff @(posedge clk)
+        if (state == LOAD)      round <= 1;
+        else if (state == SAVE) round <= round + 1;
+        else                    round <= round;
+
+    // outputs
+    assign enable    = load | (state == SAVE);
+    assign done      = (state == DONE);
+    assign lastround = (round == 10);
 endmodule
 
 /////////////////////////////////////////////
