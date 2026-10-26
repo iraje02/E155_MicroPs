@@ -83,6 +83,33 @@ module aes_core(input  logic         clk,
     
 endmodule
 
+module aes_controller(input logic clk,
+					  input logic load,
+					  output logic enable,
+					  output logic done,
+					  output logic [3:0] round,
+					  output logic lastround);
+	typedef enum logic [1:0] {DONE, LOAD, SAVE, WAIT} statetype;
+	statetype state, nextstate;
+
+	// state register
+	always_ff @(posedge clk)
+		if (load) state <= LOAD;
+		else state <= nextstate;
+
+	// next state logic
+	always_comb
+		case (state)
+			LOAD: nextstate = WAIT;
+			WAIT: nextstate = SAVE;
+			SAVE: if(round == 10) nextstate = DONE;
+				else nextstate = WAIT;
+			DONE: nextstate = DONE;
+			default: nextstate = LOAD;
+		endcase
+	
+endmodule
+
 /////////////////////////////////////////////
 // sbox
 //   Infamous AES byte substitutions with magic numbers
