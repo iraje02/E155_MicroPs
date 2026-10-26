@@ -83,6 +83,9 @@ module aes_core(input  logic         clk,
     
 endmodule
 
+
+////////////////// AES CONTROLLER /////////////////////
+
 module aes_controller(input logic clk,
 					  input logic load,
 					  output logic enable,
@@ -118,6 +121,14 @@ module aes_controller(input logic clk,
     assign enable    = load | (state == SAVE);
     assign done      = (state == DONE);
     assign lastround = (round == 10);
+endmodule
+
+////////////////// ADD ROUND KEYS /////////////////////
+
+module addroundkeys(input logic [127:0] roundkey,
+					input logic [127:0] state,
+					output logic [127:0] arkoutput);
+	assign arkoutput = roundkey ^ state;
 endmodule
 
 /////////////////////////////////////////////
