@@ -131,6 +131,42 @@ module addroundkeys(input logic [127:0] roundkey,
 	assign arkoutput = roundkey ^ state;
 endmodule
 
+///// HELPER CODE FOR SHIFT ROWS FROM TUTORIAL /////
+
+// input_to_state
+module input_to_state(input  logic [127:0]         a,
+                      output logic [0:3][0:3][7:0] y);
+    always_comb
+        for (int r = 0; r < 4; r++)
+            for (int c = 0; c < 4; c++)
+                y[r][c] = a[127 - 8*(4*c + r) -: 8];
+endmodule
+
+// state_to_output
+module state_to_output(input  logic [0:3][0:3][7:0] a,
+                       output logic [127:0]         y);
+
+    always_comb
+        for (int r = 0; r < 4; r++)
+            for (int c = 0; c < 4; c++)
+                y[127 - 8*(4*c + r) -: 8] = a[r][c]
+
+endmodule
+
+////////////////// SHIFT ROWS /////////////////////
+
+module shiftrows(input  logic [127:0] a,
+                 output logic [127:0] y);
+    logic [0:3][0:3][7:0] s, t;
+
+    input_to_state  its(a, s); 
+    always_comb
+        for (int r = 0; r < 4; r++)
+            for (int c = 0; c < 4; c++)
+                t[r][c] = s[r][(c + r) % 4];
+    state_to_output sto(t, y);    // grid -> 128 bits
+endmodule
+
 /////////////////////////////////////////////
 // sbox
 //   Infamous AES byte substitutions with magic numbers
