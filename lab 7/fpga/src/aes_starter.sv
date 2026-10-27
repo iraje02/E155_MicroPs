@@ -79,7 +79,48 @@ module aes_core(input  logic         clk,
                 output logic         done, 
                 output logic [127:0] cyphertext);
 
-    // TODO: Your code goes here
+	logic enable, lastround;
+	logic [3:0] round;
+	logic [127:0] newkey, newstate, keymuxoutput, statemuxoutput, statereg, keyreg, subbytesoutput, shiftrowsoutput, mixcolumnsoutput, bypassmuxoutput;
+
+	aes_controller aes_ctrl(clk, load, enable, done, round, lastround);
+	
+
+
+	//mux prior to state register
+	assign statemuxoutput = load ? (key ^ plaintext) : newstate;
+	
+	//state register
+	always_ff @(posedge enable)
+		if (enable) statereg <= statemuxoutput;
+
+	//cyphertext = output of state register
+	assign cyphertext = statereg;
+	
+	//mux prior to key register
+	assign keymuxoutput = load ? key : newkey;
+	
+	//key register
+	always_ff @(posedge enable)
+		if (enable) keyreg <= keymuxoutput;
+			
+	//instantiate key expansion
+	keyexpansion aes_keyexp(clk, round, keyreg, newkey);
+
+	//instantiate subbytes
+	subbytes aes_subbytes(statereg, clk, subbytesoutput);
+
+	//instantiate shiftrows
+	shiftrows aes_shiftrows(subbytesoutput, shiftrowsoutput);
+
+	//instantiate mixcolumns
+	mixcolumns aes_mixcolumn(shiftrowsoutput, mixcolumnsoutput);
+
+	//mux before addroundkeys to bypass mixcolumn
+	assign bypassmuxoutput = lastround ? shiftrowsoutput : mixcolumnsoutput;
+
+	//instantiate addroundkeys
+	addroundkeys aes_ark(newkey, bypassmuxoutput, newstate);
     
 endmodule
 
@@ -92,7 +133,7 @@ module aes_controller(input logic clk,
 					  output logic done,
 					  output logic [3:0] round,
 					  output logic lastround);
-	typedef enum logic [1:0] {DONE, LOAD, SAVE, WAIT} statetype;
+	typedef enum logic [1:0] {LOAD, WAIT, SAVE, DONE} statetype;
 	statetype state, nextstate;
 
 	// state register
