@@ -233,10 +233,11 @@ module keyexpansion (input logic clk,
 
 	// XOR
 	assign temp = { subword[31:24]^rcon, subword[23:0] };
-
-
-
-
+	assign w0new = w0 ^ temp;
+	assign w1new = w1 ^ w0new;
+	assign w2new = w2 ^ w1new;
+	assign w3new = w3 ^ w2new;
+	assign newkey = {w0new, w1new, w2new, w3new};
 	
 endmodule
 
