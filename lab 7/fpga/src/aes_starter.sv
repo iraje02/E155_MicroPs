@@ -83,15 +83,14 @@ module aes_core(input  logic         clk,
 	logic [3:0] round;
 	logic [127:0] newkey, newstate, keymuxoutput, statemuxoutput, statereg, keyreg, subbytesoutput, shiftrowsoutput, mixcolumnsoutput, bypassmuxoutput;
 
+	//instantiate controller
 	aes_controller aes_ctrl(clk, load, enable, done, round, lastround);
-	
-
 
 	//mux prior to state register
 	assign statemuxoutput = load ? (key ^ plaintext) : newstate;
 	
 	//state register
-	always_ff @(posedge enable)
+	always_ff @(posedge clk)
 		if (enable) statereg <= statemuxoutput;
 
 	//cyphertext = output of state register
@@ -101,7 +100,7 @@ module aes_core(input  logic         clk,
 	assign keymuxoutput = load ? key : newkey;
 	
 	//key register
-	always_ff @(posedge enable)
+	always_ff @(posedge clk)
 		if (enable) keyreg <= keymuxoutput;
 			
 	//instantiate key expansion
