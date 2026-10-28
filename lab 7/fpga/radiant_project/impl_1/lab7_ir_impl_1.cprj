@@ -1,0 +1,8 @@
+-ver "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "C:/Users/iraje/Downloads/lab7_ir/impl_1/aes_starter.sv" "C:/Users/iraje/Downloads/lab7_ir/source/impl_1/aes_controller.sv" "C:/Users/iraje/Downloads/lab7_ir/source/impl_1/addroundkeys.sv" "C:/Users/iraje/Downloads/lab7_ir/source/impl_1/shiftrows.sv" "C:/Users/iraje/Downloads/lab7_ir/source/impl_1/subbytes.sv" "C:/Users/iraje/Downloads/lab7_ir/source/impl_1/keyexpansion.sv"
+-path "C:/Users/iraje/Downloads/lab7_ir" "C:/Users/iraje/Downloads/lab7_ir"
+-top aes
+-isTop
+-a "iCE40UP"
+-t "iCE40UP5K"

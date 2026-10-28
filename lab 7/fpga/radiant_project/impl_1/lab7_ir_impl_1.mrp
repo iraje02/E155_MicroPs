@@ -1,0 +1,274 @@
+
+                         Lattice Mapping Report File
+
+Design:  aes
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:  High-Performance_1.2V
+
+Mapper:    version Radiant Software (64-bit) 2026.1.0.37.0
+Mapped on: Wed Oct 28 01:31:39 2026
+
+Design Information
+------------------
+
+Command line:   map -pdc C:/Users/iraje/Downloads/lab7_ir/lab7_ir.pdc -i
+     lab7_ir_impl_1_syn.udb -o lab7_ir_impl_1_map.udb -mp lab7_ir_impl_1.mrp
+     -hierrpt -gui -msgset C:/Users/iraje/Downloads/lab7_ir/promote.xml
+
+Design Summary
+--------------
+
+   Number of slice registers: 661 out of  5280 (13%)
+   Number of I/O registers:      2 out of   117 (2%)
+   Number of LUT4s:           1163 out of  5280 (22%)
+      Number of logic LUT4s:             887
+      Number of inserted feedthru LUT4s: 276
+      Number of ripple logic:              0 (0 LUT4s)
+   Number of IO sites used:   5 out of 39 (13%)
+      Number of IO sites used for general PIO: 5
+      Number of IO sites used for I3C: 0 out of 2 (0%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for PIO+I3C: 5 out of 36 (14%)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
+       see TN1288 iCE40 LED Driver Usage Guide)
+      Number of IO sites used for PIO+I3C+OD+RGB: 5 out of 39 (13%)
+   Number of DSPs:             0 out of 8 (0%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            0 out of 4 (0%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             20 out of 30 (67%)
+   Number of PLLs:             0 out of 1 (0%)
+   Number of Clocks:  2
+      Net int_osc: 298 loads, 298 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
+      Net sck_c: 385 loads, 383 rising, 2 falling (Driver: Port sck)
+   Number of Clock Enables:  3
+      Net VCC_net: 61 loads, 0 SLICEs
+      Net core.n2818: 256 loads, 256 SLICEs
+      Net core.aes_ctrl.n3049: 16 loads, 16 SLICEs
+   Number of LSRs:  2
+      Net core.loadsync: 3 loads, 3 SLICEs
+      Net core.aes_ctrl.enable_N_692[0]: 16 loads, 16 SLICEs
+   Top 10 highest fanout non-clock nets:
+      Net core.loadsync: 261 loads
+      Net core.n2818: 256 loads
+
+                                    Page 1
+
+
+
+
+
+Design Summary (cont)
+---------------------
+      Net core.lastround: 137 loads
+      Net spi.wasdone: 128 loads
+      Net VCC_net: 62 loads
+      Net core.aes_ctrl.enable_N_692[0]: 18 loads
+      Net core.aes_ctrl.n3049: 16 loads
+      Net core.rcon_7__N_641[9]: 10 loads
+      Net core.shiftrowsoutput[15]: 10 loads
+      Net core.shiftrowsoutput[71]: 10 loads
+
+
+
+
+
+   Number of warnings:  0
+   Number of criticals: 0
+   Number of errors:    0
+
+Design Errors/Criticals/Warnings
+--------------------------------
+
+   No error, critical, or warning presents.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| done                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sdo                 | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| load                | INPUT     |           | I     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sdi                 | INPUT     |           | I     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sck                 | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+Removed logic
+-------------
+
+Block spi/i10_1_lut was optimized away.
+Block i1 was optimized away.
+
+OSC Summary
+-----------
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            hf_osc
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     int_osc
+  DIV Setting:                                  00
+
+
+
+
+                                    Page 2
+
+
+
+
+
+ASIC Components
+---------------
+
+Instance Name: hf_osc
+         Type: HFOSC
+Instance Name: spi/key_i0
+         Type: IOLOGIC
+Instance Name: core/aes_subbytes/sbs9/cyphertext_48__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs8/cyphertext_56__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs7/cyphertext_64__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs6/cyphertext_72__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs5/cyphertext_80__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs4/cyphertext_88__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs3/cyphertext_96__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs2/cyphertext_104__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs1/cyphertext_112__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs15/cyphertext_0__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs14/cyphertext_8__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs13/cyphertext_16__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs12/cyphertext_24__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs11/cyphertext_32__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs10/cyphertext_40__I_0
+         Type: EBR
+Instance Name: core/aes_subbytes/sbs0/cyphertext_120__I_0
+         Type: EBR
+Instance Name: core/aes_keyexp/sbs19/keyreg_24__I_0
+         Type: EBR
+Instance Name: core/aes_keyexp/sbs18/keyreg_0__I_0
+         Type: EBR
+Instance Name: core/aes_keyexp/sbs17/keyreg_8__I_0
+         Type: EBR
+Instance Name: core/aes_keyexp/sbs16/keyreg_16__I_0
+         Type: EBR
+Instance Name: core/load1_c
+         Type: IOLOGIC
+
+Constraint Summary
+------------------
+
+   Total number of constraints: 7
+   Total number of constraints dropped: 0
+
+
+
+
+
+                                    Page 3
+
+
+
+
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 0 secs
+   Total REAL Time: 0 secs
+   Peak Memory Usage: 86 MB
+Checksum -- map: 2254623d72bad4d4e27d8d9ed205ddfb9fe90bb3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 4
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995
+     AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent
+     Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems
+     All rights reserved.
+Copyright (c) 2002-2026 Lattice Semiconductor
+     Corporation,  All rights reserved.

@@ -1,0 +1,1466 @@
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2026.1.0.37.0
+
+Wed Oct 28 01:31:57 2026
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2026 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt lab7_ir_impl_1.twr lab7_ir_impl_1.udb -gui -msgset C:/Users/iraje/Downloads/lab7_ir/promote.xml
+
+-----------------------------------------
+Design:          aes
+Family:          iCE40UP
+Device:          iCE40UP5K
+Package:         SG48
+Performance:     High-Performance_1.2V
+Package Status:                     Preliminary    Version 1.5
+**Performance Hardware Data Status :   Advanced Version 1.0
+-----------------------------------------
+
+
+=====================================================================
+                    Table of Contents
+=====================================================================
+    1  Timing Overview
+        1.1  SDC Constraints
+        1.2  Constraint Coverage
+        1.3  Overall Summary
+        1.4  Unconstrained Report
+        1.5  Combinational Loop
+    2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+        2.1  Clock Summary
+        2.2  Endpoint slacks
+        2.3  Detailed Report
+    3  Hold at Speed Grade m Corner at -40 Degrees
+        3.1  Endpoint slacks
+        3.2  Detailed Report
+
+=====================================================================
+                    End of Table of Contents
+=====================================================================
+
+==============================================
+1  Timing Overview
+==============================================
+
+1.1  SDC Constraints
+=====================
+create_clock -name {int_osc} -period 20.8333 [get_pins {hf_osc/CLKHF }] 
+
+1.2  Constraint Coverage
+---------------------------
+Constraint Coverage: 66.0451%
+
+
+1.3  Overall Summary
+---------------------------
+ Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees     Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+ Hold at Speed Grade m Corner at -40 Degrees                          Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+
+1.4  Unconstrained Report
+===========================
+
+1.4.1  Unconstrained Start/End Points
+--------------------------------------
+
+Clocked but unconstrained timing start points
+-------------------------------------------------------------------
+        Listing 10 Start Points         |           Type           
+-------------------------------------------------------------------
+core/statereg_i0_i0/Q                   |          No required time
+core/statereg_i0_i1/Q                   |          No required time
+core/statereg_i0_i2/Q                   |          No required time
+core/statereg_i0_i3/Q                   |          No required time
+core/statereg_i0_i4/Q                   |          No required time
+core/statereg_i0_i5/Q                   |          No required time
+core/statereg_i0_i6/Q                   |          No required time
+core/statereg_i0_i7/Q                   |          No required time
+core/statereg_i0_i8/Q                   |          No required time
+core/statereg_i0_i9/Q                   |          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                       128
+                                        |                          
+-------------------------------------------------------------------
+
+Clocked but unconstrained timing end points
+-------------------------------------------------------------------
+          Listing 1 End Points          |           Type           
+-------------------------------------------------------------------
+core/load1_c/PADDI                      |           No arrival time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                         1
+                                        |                          
+-------------------------------------------------------------------
+
+1.4.2  Start/End Points Without Timing Constraints
+---------------------------------------------------
+
+I/O ports without constraint
+----------------------------
+Possible constraints to use on I/O ports are:
+set_input_delay,
+set_output_delay,
+set_max_delay,
+create_clock,
+create_generated_clock,
+...
+
+-------------------------------------------------------------------
+     Listing 5 Start or End Points      |           Type           
+-------------------------------------------------------------------
+load                                    |                     input
+sdi                                     |                     input
+sck                                     |                     input
+done                                    |                    output
+sdo                                     |                    output
+-------------------------------------------------------------------
+                                        |                          
+Number of I/O ports without constraint  |                         5
+                                        |                          
+-------------------------------------------------------------------
+
+Nets without clock definition
+Define a clock on a top level port or a generated clock on a clock divider pin associated with this net(s).
+-------------------------------------------------------------------
+            Listing 1 Net(s)            |        Source pin        
+-------------------------------------------------------------------
+sck_c                                   |         sck_pad.bb_inst/O
+-------------------------------------------------------------------
+                                        |                          
+Number of clock nets without clock defi |                          
+nition                                  |                         1
+                                        |                          
+-------------------------------------------------------------------
+
+
+1.5  Combinational Loop
+========================
+None
+
+===============================================================
+2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+===============================================================
+
+2.1  Clock Summary
+=======================
+
+2.1.1 Clock "int_osc"
+=======================
+create_clock -name {int_osc} -period 20.8333 [get_pins {hf_osc/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+             Clock int_osc              |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From int_osc                           |             Target |          20.833 ns |         48.000 MHz 
+                                        | Actual (all paths) |          20.792 ns |         48.095 MHz 
+hf_osc/CLKHF (MPW)                      |   (50% duty cycle) |          20.792 ns |         48.095 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+
+2.2  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+core/statereg_i0_i91/D                   |    2.038 ns 
+core/statereg_i0_i123/D                  |    2.818 ns 
+core/statereg_i0_i56/D                   |    3.095 ns 
+core/keyreg_i0_i59/D                     |    3.334 ns 
+core/keyreg_i0_i27/D                     |    3.334 ns 
+core/statereg_i0_i59/D                   |    3.743 ns 
+core/statereg_i0_i95/D                   |    4.206 ns 
+core/statereg_i0_i31/D                   |    4.206 ns 
+core/statereg_i0_i62/D                   |    4.338 ns 
+core/statereg_i0_i89/D                   |    4.417 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           0 
+                                         |             
+-------------------------------------------------------
+
+2.3  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i11/Q  (SLICE_R13C14C)
+Path End         : core/statereg_i0_i91/D  (SLICE_R11C12D)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 8
+Delay Ratio      : 75.2% (route), 24.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.038 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i11/CK   core/aes_ctrl/round_FSM_i12/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i11/CK->core/aes_ctrl/round_FSM_i11/Q
+                                          SLICE_R13C14C      CLK_TO_Q0_DELAY     1.388                  6.887  2       
+core/aes_ctrl/n443                                           NET DELAY           2.141                  9.028  2       
+core/aes_keyexp/i4_4_lut/C->core/aes_keyexp/i4_4_lut/Z
+                                          SLICE_R13C13A      A0_TO_F0_DELAY      0.476                  9.504  1       
+core/aes_keyexp/n10                                          NET DELAY           0.304                  9.808  1       
+core/aes_keyexp/i5_3_lut/B->core/aes_keyexp/i5_3_lut/Z
+                                          SLICE_R13C13A      C1_TO_F1_DELAY      0.449                 10.257  6       
+core/aes_keyexp/n799                                         NET DELAY           2.432                 12.689  6       
+core/aes_keyexp/i2978_2_lut_3_lut/A->core/aes_keyexp/i2978_2_lut_3_lut/Z
+                                          SLICE_R13C14A      C0_TO_F0_DELAY      0.449                 13.138  2       
+core/aes_keyexp/n3707                                        NET DELAY           2.763                 15.901  2       
+core/aes_keyexp/i2_4_lut_adj_411/D->core/aes_keyexp/i2_4_lut_adj_411/Z
+                                          SLICE_R16C14A      D0_TO_F0_DELAY      0.449                 16.350  6       
+core/aes_keyexp/newkey[123]                                  NET DELAY           3.278                 19.628  6       
+core/aes_keyexp/keyreg_91__I_0_2_lut/B->core/aes_keyexp/keyreg_91__I_0_2_lut/Z
+                                          SLICE_R11C14C      D0_TO_F0_DELAY      0.476                 20.104  1       
+core/aes_keyexp/newkey[91]                                   NET DELAY           0.304                 20.408  1       
+core/i4098_4_lut/B->core/i4098_4_lut/Z    SLICE_R11C14C      C1_TO_F1_DELAY      0.449                 20.857  1       
+core/n4338                                                   NET DELAY           2.763                 23.620  1       
+core/i376_4_lut/A->core/i376_4_lut/Z      SLICE_R11C12D      D1_TO_F1_DELAY      0.476                 24.096  1       
+core/n1108                                                   NET DELAY           0.000                 24.096  1       
+core/statereg_i0_i91/D                                       ENDPOINT            0.000                 24.096  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/statereg_i0_i90/CK   core/statereg_i0_i91/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(24.095)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.038  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i11/Q  (SLICE_R13C14C)
+Path End         : core/statereg_i0_i123/D  (SLICE_R10C12B)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 7
+Delay Ratio      : 76.8% (route), 23.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.818 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i11/CK   core/aes_ctrl/round_FSM_i12/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i11/CK->core/aes_ctrl/round_FSM_i11/Q
+                                          SLICE_R13C14C      CLK_TO_Q0_DELAY     1.388                  6.887  2       
+core/aes_ctrl/n443                                           NET DELAY           2.141                  9.028  2       
+core/aes_keyexp/i4_4_lut/C->core/aes_keyexp/i4_4_lut/Z
+                                          SLICE_R13C13A      A0_TO_F0_DELAY      0.476                  9.504  1       
+core/aes_keyexp/n10                                          NET DELAY           0.304                  9.808  1       
+core/aes_keyexp/i5_3_lut/B->core/aes_keyexp/i5_3_lut/Z
+                                          SLICE_R13C13A      C1_TO_F1_DELAY      0.449                 10.257  6       
+core/aes_keyexp/n799                                         NET DELAY           2.432                 12.689  6       
+core/aes_keyexp/i2978_2_lut_3_lut/A->core/aes_keyexp/i2978_2_lut_3_lut/Z
+                                          SLICE_R13C14A      C0_TO_F0_DELAY      0.449                 13.138  2       
+core/aes_keyexp/n3707                                        NET DELAY           2.763                 15.901  2       
+core/aes_keyexp/i2_4_lut_adj_411/D->core/aes_keyexp/i2_4_lut_adj_411/Z
+                                          SLICE_R16C14A      D0_TO_F0_DELAY      0.449                 16.350  6       
+core/aes_keyexp/newkey[123]                                  NET DELAY           3.278                 19.628  6       
+core/i3975_4_lut/B->core/i3975_4_lut/Z    SLICE_R11C14B      D0_TO_F0_DELAY      0.449                 20.077  1       
+core/n4466                                                   NET DELAY           2.763                 22.840  1       
+core/i440_4_lut/A->core/i440_4_lut/Z      SLICE_R10C12B      D1_TO_F1_DELAY      0.476                 23.316  1       
+core/n1172                                                   NET DELAY           0.000                 23.316  1       
+core/statereg_i0_i123/D                                      ENDPOINT            0.000                 23.316  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/statereg_i0_i122/CK   core/statereg_i0_i123/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(23.315)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.818  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i7/Q  (SLICE_R15C13B)
+Path End         : core/statereg_i0_i56/D  (SLICE_R14C11C)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 8
+Delay Ratio      : 73.7% (route), 26.3% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.095 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i5/CK   core/aes_ctrl/round_FSM_i7/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i7/CK->core/aes_ctrl/round_FSM_i7/Q
+                                          SLICE_R15C13B      CLK_TO_Q1_DELAY     1.388                  6.887  4       
+core/aes_ctrl/n447                                           NET DELAY           2.736                  9.623  4       
+core/aes_ctrl/i1_2_lut_3_lut_4_lut/D->core/aes_ctrl/i1_2_lut_3_lut_4_lut/Z
+                                          SLICE_R14C13A      A0_TO_F0_DELAY      0.449                 10.072  5       
+core/aes_ctrl/n837                                           NET DELAY           2.485                 12.557  5       
+core/aes_keyexp/i2_3_lut_4_lut/D->core/aes_keyexp/i2_3_lut_4_lut/Z
+                                          SLICE_R13C13B      B0_TO_F0_DELAY      0.476                 13.033  2       
+core/aes_keyexp/n2354                                        NET DELAY           0.304                 13.337  2       
+core/aes_keyexp/i2440_2_lut/B->core/aes_keyexp/i2440_2_lut/Z
+                                          SLICE_R13C13B      C1_TO_F1_DELAY      0.476                 13.813  1       
+core/aes_keyexp/rcon_7__N_640[0]                             NET DELAY           0.304                 14.117  1       
+core/aes_keyexp/i2_4_lut_adj_414/B->core/aes_keyexp/i2_4_lut_adj_414/Z
+                                          SLICE_R13C13C      C0_TO_F0_DELAY      0.449                 14.566  6       
+core/aes_keyexp/newkey[120]                                  NET DELAY           2.763                 17.329  6       
+core/aes_keyexp/keyreg_56__I_0_2_lut_3_lut/C->core/aes_keyexp/keyreg_56__I_0_2_lut_3_lut/Z
+                                          SLICE_R14C11A      D1_TO_F1_DELAY      0.449                 17.778  3       
+core/aes_keyexp/newkey[56]                                   NET DELAY           2.168                 19.946  3       
+core/i3821_4_lut/B->core/i3821_4_lut/Z    SLICE_R14C11A      D0_TO_F0_DELAY      0.449                 20.395  1       
+core/n4198                                                   NET DELAY           2.168                 22.563  1       
+core/i306_4_lut/A->core/i306_4_lut/Z      SLICE_R14C11C      D0_TO_F0_DELAY      0.476                 23.039  1       
+core/n1038                                                   NET DELAY           0.000                 23.039  1       
+core/statereg_i0_i56/D                                       ENDPOINT            0.000                 23.039  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/statereg_i0_i56/CK   core/statereg_i0_i57/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(23.038)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    3.095  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i11/Q  (SLICE_R13C14C)
+Path End         : core/keyreg_i0_i59/D  (SLICE_R16C9A)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 7
+Delay Ratio      : 76.1% (route), 23.9% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.334 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i11/CK   core/aes_ctrl/round_FSM_i12/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i11/CK->core/aes_ctrl/round_FSM_i11/Q
+                                          SLICE_R13C14C      CLK_TO_Q0_DELAY     1.388                  6.887  2       
+core/aes_ctrl/n443                                           NET DELAY           2.141                  9.028  2       
+core/aes_keyexp/i4_4_lut/C->core/aes_keyexp/i4_4_lut/Z
+                                          SLICE_R13C13A      A0_TO_F0_DELAY      0.476                  9.504  1       
+core/aes_keyexp/n10                                          NET DELAY           0.304                  9.808  1       
+core/aes_keyexp/i5_3_lut/B->core/aes_keyexp/i5_3_lut/Z
+                                          SLICE_R13C13A      C1_TO_F1_DELAY      0.449                 10.257  6       
+core/aes_keyexp/n799                                         NET DELAY           2.432                 12.689  6       
+core/aes_keyexp/i2978_2_lut_3_lut/A->core/aes_keyexp/i2978_2_lut_3_lut/Z
+                                          SLICE_R13C14A      C0_TO_F0_DELAY      0.449                 13.138  2       
+core/aes_keyexp/n3707                                        NET DELAY           2.763                 15.901  2       
+core/aes_keyexp/i2_4_lut_adj_411/D->core/aes_keyexp/i2_4_lut_adj_411/Z
+                                          SLICE_R16C14A      D0_TO_F0_DELAY      0.449                 16.350  6       
+core/aes_keyexp/newkey[123]                                  NET DELAY           2.168                 18.518  6       
+core/aes_keyexp/keyreg_59__I_0_2_lut_3_lut/C->core/aes_keyexp/keyreg_59__I_0_2_lut_3_lut/Z
+                                          SLICE_R16C13D      D0_TO_F0_DELAY      0.449                 18.967  3       
+core/aes_keyexp/newkey[59]                                   NET DELAY           3.357                 22.324  3       
+core/i566_3_lut/A->core/i566_3_lut/Z      SLICE_R16C9A       D1_TO_F1_DELAY      0.476                 22.800  1       
+core/n1298                                                   NET DELAY           0.000                 22.800  1       
+core/keyreg_i0_i59/D                                         ENDPOINT            0.000                 22.800  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/keyreg_i0_i58/CK   core/keyreg_i0_i59/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(22.799)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    3.334  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i11/Q  (SLICE_R13C14C)
+Path End         : core/keyreg_i0_i27/D  (SLICE_R15C9A)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 7
+Delay Ratio      : 76.1% (route), 23.9% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.334 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i11/CK   core/aes_ctrl/round_FSM_i12/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i11/CK->core/aes_ctrl/round_FSM_i11/Q
+                                          SLICE_R13C14C      CLK_TO_Q0_DELAY     1.388                  6.887  2       
+core/aes_ctrl/n443                                           NET DELAY           2.141                  9.028  2       
+core/aes_keyexp/i4_4_lut/C->core/aes_keyexp/i4_4_lut/Z
+                                          SLICE_R13C13A      A0_TO_F0_DELAY      0.476                  9.504  1       
+core/aes_keyexp/n10                                          NET DELAY           0.304                  9.808  1       
+core/aes_keyexp/i5_3_lut/B->core/aes_keyexp/i5_3_lut/Z
+                                          SLICE_R13C13A      C1_TO_F1_DELAY      0.449                 10.257  6       
+core/aes_keyexp/n799                                         NET DELAY           2.432                 12.689  6       
+core/aes_keyexp/i2978_2_lut_3_lut/A->core/aes_keyexp/i2978_2_lut_3_lut/Z
+                                          SLICE_R13C14A      C0_TO_F0_DELAY      0.449                 13.138  2       
+core/aes_keyexp/n3707                                        NET DELAY           2.763                 15.901  2       
+core/aes_keyexp/i2_4_lut_adj_411/D->core/aes_keyexp/i2_4_lut_adj_411/Z
+                                          SLICE_R16C14A      D0_TO_F0_DELAY      0.449                 16.350  6       
+core/aes_keyexp/newkey[123]                                  NET DELAY           2.168                 18.518  6       
+core/aes_keyexp/keyreg_59__I_0_2_lut_3_lut/C->core/aes_keyexp/keyreg_59__I_0_2_lut_3_lut/Z
+                                          SLICE_R16C13D      D0_TO_F0_DELAY      0.449                 18.967  3       
+core/aes_keyexp/newkey[59]                                   NET DELAY           3.357                 22.324  3       
+core/i502_3_lut_4_lut/B->core/i502_3_lut_4_lut/Z
+                                          SLICE_R15C9A       D1_TO_F1_DELAY      0.476                 22.800  1       
+core/n1234                                                   NET DELAY           0.000                 22.800  1       
+core/keyreg_i0_i27/D                                         ENDPOINT            0.000                 22.800  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/keyreg_i0_i26/CK   core/keyreg_i0_i27/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(22.799)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    3.334  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i11/Q  (SLICE_R13C14C)
+Path End         : core/statereg_i0_i59/D  (SLICE_R16C12B)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 8
+Delay Ratio      : 72.7% (route), 27.3% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i11/CK   core/aes_ctrl/round_FSM_i12/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i11/CK->core/aes_ctrl/round_FSM_i11/Q
+                                          SLICE_R13C14C      CLK_TO_Q0_DELAY     1.388                  6.887  2       
+core/aes_ctrl/n443                                           NET DELAY           2.141                  9.028  2       
+core/aes_keyexp/i4_4_lut/C->core/aes_keyexp/i4_4_lut/Z
+                                          SLICE_R13C13A      A0_TO_F0_DELAY      0.476                  9.504  1       
+core/aes_keyexp/n10                                          NET DELAY           0.304                  9.808  1       
+core/aes_keyexp/i5_3_lut/B->core/aes_keyexp/i5_3_lut/Z
+                                          SLICE_R13C13A      C1_TO_F1_DELAY      0.449                 10.257  6       
+core/aes_keyexp/n799                                         NET DELAY           2.432                 12.689  6       
+core/aes_keyexp/i2978_2_lut_3_lut/A->core/aes_keyexp/i2978_2_lut_3_lut/Z
+                                          SLICE_R13C14A      C0_TO_F0_DELAY      0.449                 13.138  2       
+core/aes_keyexp/n3707                                        NET DELAY           2.763                 15.901  2       
+core/aes_keyexp/i2_4_lut_adj_411/D->core/aes_keyexp/i2_4_lut_adj_411/Z
+                                          SLICE_R16C14A      D0_TO_F0_DELAY      0.449                 16.350  6       
+core/aes_keyexp/newkey[123]                                  NET DELAY           2.168                 18.518  6       
+core/aes_keyexp/keyreg_59__I_0_2_lut_3_lut/C->core/aes_keyexp/keyreg_59__I_0_2_lut_3_lut/Z
+                                          SLICE_R16C13D      D0_TO_F0_DELAY      0.476                 18.994  3       
+core/aes_keyexp/newkey[59]                                   NET DELAY           0.304                 19.298  3       
+core/i3815_4_lut/B->core/i3815_4_lut/Z    SLICE_R16C13D      C1_TO_F1_DELAY      0.449                 19.747  1       
+core/n4210                                                   NET DELAY           2.168                 21.915  1       
+core/i312_4_lut/A->core/i312_4_lut/Z      SLICE_R16C12B      D1_TO_F1_DELAY      0.476                 22.391  1       
+core/n1044                                                   NET DELAY           0.000                 22.391  1       
+core/statereg_i0_i59/D                                       ENDPOINT            0.000                 22.391  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/statereg_i0_i58/CK   core/statereg_i0_i59/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(22.390)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    3.743  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i7/Q  (SLICE_R15C13B)
+Path End         : core/statereg_i0_i95/D  (SLICE_R12C14D)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 7
+Delay Ratio      : 74.8% (route), 25.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 4.206 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i5/CK   core/aes_ctrl/round_FSM_i7/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i7/CK->core/aes_ctrl/round_FSM_i7/Q
+                                          SLICE_R15C13B      CLK_TO_Q1_DELAY     1.388                  6.887  4       
+core/aes_ctrl/n447                                           NET DELAY           2.736                  9.623  4       
+core/aes_ctrl/i1_2_lut_3_lut_4_lut/D->core/aes_ctrl/i1_2_lut_3_lut_4_lut/Z
+                                          SLICE_R14C13A      A0_TO_F0_DELAY      0.449                 10.072  5       
+core/aes_ctrl/n837                                           NET DELAY           2.485                 12.557  5       
+core/aes_keyexp/i2_3_lut_4_lut/D->core/aes_keyexp/i2_3_lut_4_lut/Z
+                                          SLICE_R13C13B      B0_TO_F0_DELAY      0.449                 13.006  2       
+core/aes_keyexp/n2354                                        NET DELAY           2.168                 15.174  2       
+core/aes_keyexp/i2_4_lut_adj_415/B->core/aes_keyexp/i2_4_lut_adj_415/Z
+                                          SLICE_R12C14A      D0_TO_F0_DELAY      0.449                 15.623  6       
+core/aes_keyexp/newkey[127]                                  NET DELAY           2.432                 18.055  6       
+core/aes_keyexp/keyreg_95__I_0_2_lut/B->core/aes_keyexp/keyreg_95__I_0_2_lut/Z
+                                          SLICE_R13C15C      C0_TO_F0_DELAY      0.476                 18.531  1       
+core/aes_keyexp/newkey[95]                                   NET DELAY           0.304                 18.835  1       
+core/i4082_4_lut/B->core/i4082_4_lut/Z    SLICE_R13C15C      C1_TO_F1_DELAY      0.449                 19.284  1       
+core/n4354                                                   NET DELAY           2.168                 21.452  1       
+core/i384_4_lut/A->core/i384_4_lut/Z      SLICE_R12C14D      D1_TO_F1_DELAY      0.476                 21.928  1       
+core/n1116                                                   NET DELAY           0.000                 21.928  1       
+core/statereg_i0_i95/D                                       ENDPOINT            0.000                 21.928  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/statereg_i0_i94/CK   core/statereg_i0_i95/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(21.927)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    4.206  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i7/Q  (SLICE_R15C13B)
+Path End         : core/statereg_i0_i31/D  (SLICE_R14C15C)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 7
+Delay Ratio      : 74.8% (route), 25.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 4.206 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i5/CK   core/aes_ctrl/round_FSM_i7/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i7/CK->core/aes_ctrl/round_FSM_i7/Q
+                                          SLICE_R15C13B      CLK_TO_Q1_DELAY     1.388                  6.887  4       
+core/aes_ctrl/n447                                           NET DELAY           2.736                  9.623  4       
+core/aes_ctrl/i1_2_lut_3_lut_4_lut/D->core/aes_ctrl/i1_2_lut_3_lut_4_lut/Z
+                                          SLICE_R14C13A      A0_TO_F0_DELAY      0.449                 10.072  5       
+core/aes_ctrl/n837                                           NET DELAY           2.485                 12.557  5       
+core/aes_keyexp/i2_3_lut_4_lut/D->core/aes_keyexp/i2_3_lut_4_lut/Z
+                                          SLICE_R13C13B      B0_TO_F0_DELAY      0.449                 13.006  2       
+core/aes_keyexp/n2354                                        NET DELAY           2.168                 15.174  2       
+core/aes_keyexp/i2_4_lut_adj_415/B->core/aes_keyexp/i2_4_lut_adj_415/Z
+                                          SLICE_R12C14A      D0_TO_F0_DELAY      0.449                 15.623  6       
+core/aes_keyexp/newkey[127]                                  NET DELAY           2.432                 18.055  6       
+core.aes_keyexp.keyreg_31__I_0_2_lut/C->core.aes_keyexp.keyreg_31__I_0_2_lut/Z
+                                          SLICE_R13C15B      C0_TO_F0_DELAY      0.476                 18.531  1       
+core/aes_keyexp/newkey[31]                                   NET DELAY           0.304                 18.835  1       
+core/i3872_4_lut/B->core/i3872_4_lut/Z    SLICE_R13C15B      C1_TO_F1_DELAY      0.449                 19.284  1       
+core/n4098                                                   NET DELAY           2.168                 21.452  1       
+core/i256_4_lut/A->core/i256_4_lut/Z      SLICE_R14C15C      D1_TO_F1_DELAY      0.476                 21.928  1       
+core/n988                                                    NET DELAY           0.000                 21.928  1       
+core/statereg_i0_i31/D                                       ENDPOINT            0.000                 21.928  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/statereg_i0_i30/CK   core/statereg_i0_i31/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(21.927)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    4.206  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i11/Q  (SLICE_R13C14C)
+Path End         : core/statereg_i0_i62/D  (SLICE_R13C15D)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 8
+Delay Ratio      : 71.7% (route), 28.3% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 4.338 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i11/CK   core/aes_ctrl/round_FSM_i12/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i11/CK->core/aes_ctrl/round_FSM_i11/Q
+                                          SLICE_R13C14C      CLK_TO_Q0_DELAY     1.388                  6.887  2       
+core/aes_ctrl/n443                                           NET DELAY           2.141                  9.028  2       
+core/aes_keyexp/i4_4_lut/C->core/aes_keyexp/i4_4_lut/Z
+                                          SLICE_R13C13A      A0_TO_F0_DELAY      0.476                  9.504  1       
+core/aes_keyexp/n10                                          NET DELAY           0.304                  9.808  1       
+core/aes_keyexp/i5_3_lut/B->core/aes_keyexp/i5_3_lut/Z
+                                          SLICE_R13C13A      C1_TO_F1_DELAY      0.449                 10.257  6       
+core/aes_keyexp/n799                                         NET DELAY           2.432                 12.689  6       
+core/aes_keyexp/i2978_2_lut_3_lut/A->core/aes_keyexp/i2978_2_lut_3_lut/Z
+                                          SLICE_R13C14A      C0_TO_F0_DELAY      0.476                 13.165  2       
+core/aes_keyexp/n3707                                        NET DELAY           0.304                 13.469  2       
+core/aes_keyexp/i2_4_lut_adj_416/B->core/aes_keyexp/i2_4_lut_adj_416/Z
+                                          SLICE_R13C14A      C1_TO_F1_DELAY      0.449                 13.918  6       
+core/aes_keyexp/newkey[126]                                  NET DELAY           2.168                 16.086  6       
+core/aes_keyexp/keyreg_62__I_0_2_lut_3_lut/C->core/aes_keyexp/keyreg_62__I_0_2_lut_3_lut/Z
+                                          SLICE_R14C15A      D1_TO_F1_DELAY      0.449                 16.535  3       
+core/aes_keyexp/newkey[62]                                   NET DELAY           2.168                 18.703  3       
+core/i3808_4_lut/B->core/i3808_4_lut/Z    SLICE_R14C15A      D0_TO_F0_DELAY      0.449                 19.152  1       
+core/n4222                                                   NET DELAY           2.168                 21.320  1       
+core/i318_4_lut/A->core/i318_4_lut/Z      SLICE_R13C15D      D0_TO_F0_DELAY      0.476                 21.796  1       
+core/n1050                                                   NET DELAY           0.000                 21.796  1       
+core/statereg_i0_i62/D                                       ENDPOINT            0.000                 21.796  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/statereg_i0_i62/CK   core/statereg_i0_i63/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(21.795)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    4.338  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/aes_ctrl/round_FSM_i7/Q  (SLICE_R15C13B)
+Path End         : core/statereg_i0_i89/D  (SLICE_R12C12B)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 8
+Delay Ratio      : 71.4% (route), 28.6% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 4.417 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                  5.499  163     
+{core/aes_ctrl/round_FSM_i5/CK   core/aes_ctrl/round_FSM_i7/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+core/aes_ctrl/round_FSM_i7/CK->core/aes_ctrl/round_FSM_i7/Q
+                                          SLICE_R15C13B      CLK_TO_Q1_DELAY     1.388                  6.887  4       
+core/aes_ctrl/n447                                           NET DELAY           2.736                  9.623  4       
+core/aes_ctrl/i1_2_lut_3_lut_4_lut/D->core/aes_ctrl/i1_2_lut_3_lut_4_lut/Z
+                                          SLICE_R14C13A      A0_TO_F0_DELAY      0.449                 10.072  5       
+core/aes_ctrl/n837                                           NET DELAY           2.485                 12.557  5       
+core/aes_keyexp/mux_134_i2_4_lut/C->core/aes_keyexp/mux_134_i2_4_lut/Z
+                                          SLICE_R14C12A      B1_TO_F1_DELAY      0.476                 13.033  1       
+core/aes_keyexp/n838[1]                                      NET DELAY           0.304                 13.337  1       
+core/aes_keyexp/mux_138_i2_3_lut_3_lut/C->core/aes_keyexp/mux_138_i2_3_lut_3_lut/Z
+                                          SLICE_R14C12B      C0_TO_F0_DELAY      0.476                 13.813  1       
+core/aes_keyexp/rcon_7__N_640[1]                             NET DELAY           0.304                 14.117  1       
+core/aes_keyexp/i2_4_lut_adj_413/B->core/aes_keyexp/i2_4_lut_adj_413/Z
+                                          SLICE_R14C12B      C1_TO_F1_DELAY      0.449                 14.566  6       
+core/aes_keyexp/newkey[121]                                  NET DELAY           3.278                 17.844  6       
+core/aes_keyexp/keyreg_89__I_0_2_lut/B->core/aes_keyexp/keyreg_89__I_0_2_lut/Z
+                                          SLICE_R11C13D      D0_TO_F0_DELAY      0.476                 18.320  1       
+core/aes_keyexp/newkey[89]                                   NET DELAY           0.304                 18.624  1       
+core/i4106_4_lut/B->core/i4106_4_lut/Z    SLICE_R11C13D      C1_TO_F1_DELAY      0.449                 19.073  1       
+core/n4330                                                   NET DELAY           2.168                 21.241  1       
+core/i372_4_lut/A->core/i372_4_lut/Z      SLICE_R12C12B      D1_TO_F1_DELAY      0.476                 21.717  1       
+core/n1104                                                   NET DELAY           0.000                 21.717  1       
+core/statereg_i0_i89/D                                       ENDPOINT            0.000                 21.717  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  163     
+core/aes_ctrl/int_osc                                        NET DELAY           5.499                 26.332  163     
+{core/statereg_i0_i88/CK   core/statereg_i0_i89/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(21.716)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    4.417  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+===============================================================
+3  Hold at Speed Grade m Corner at -40 Degrees
+===============================================================
+
+3.1  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+core/keyreg_i0_i51/D                     |    1.743 ns 
+core/keyreg_i0_i48/D                     |    1.743 ns 
+core/keyreg_i0_i49/D                     |    1.743 ns 
+core/keyreg_i0_i44/D                     |    1.743 ns 
+core/keyreg_i0_i40/D                     |    1.743 ns 
+core/keyreg_i0_i38/D                     |    1.743 ns 
+core/keyreg_i0_i39/D                     |    1.743 ns 
+core/keyreg_i0_i36/D                     |    1.743 ns 
+core/keyreg_i0_i35/D                     |    1.743 ns 
+core/keyreg_i0_i32/D                     |    1.743 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
+
+3.2  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i51/Q  (SLICE_R21C13A)
+Path End         : core/keyreg_i0_i51/D  (SLICE_R21C13A)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i50/CK   core/keyreg_i0_i51/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i51/CK->core/keyreg_i0_i51/Q
+                                          SLICE_R21C13A      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[51]                                   NET DELAY        0.712                  4.575  3       
+core/i550_3_lut_4_lut/A->core/i550_3_lut_4_lut/Z
+                                          SLICE_R21C13A      D1_TO_F1_DELAY   0.252                  4.827  1       
+core/n1282                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i51/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i50/CK   core/keyreg_i0_i51/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i48/Q  (SLICE_R16C16C)
+Path End         : core/keyreg_i0_i48/D  (SLICE_R16C16C)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i48/CK   core/keyreg_i0_i49/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i48/CK->core/keyreg_i0_i48/Q
+                                          SLICE_R16C16C      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[48]                                   NET DELAY        0.712                  4.575  3       
+core/i544_3_lut_4_lut/A->core/i544_3_lut_4_lut/Z
+                                          SLICE_R16C16C      D0_TO_F0_DELAY   0.252                  4.827  1       
+core/n1276                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i48/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i48/CK   core/keyreg_i0_i49/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i49/Q  (SLICE_R16C16C)
+Path End         : core/keyreg_i0_i49/D  (SLICE_R16C16C)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i48/CK   core/keyreg_i0_i49/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i49/CK->core/keyreg_i0_i49/Q
+                                          SLICE_R16C16C      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[49]                                   NET DELAY        0.712                  4.575  3       
+core/i546_3_lut_4_lut/A->core/i546_3_lut_4_lut/Z
+                                          SLICE_R16C16C      D1_TO_F1_DELAY   0.252                  4.827  1       
+core/n1278                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i49/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i48/CK   core/keyreg_i0_i49/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i44/Q  (SLICE_R17C26A)
+Path End         : core/keyreg_i0_i44/D  (SLICE_R17C26A)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i44/CK   core/keyreg_i0_i45/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i44/CK->core/keyreg_i0_i44/Q
+                                          SLICE_R17C26A      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[44]                                   NET DELAY        0.712                  4.575  3       
+core/i536_3_lut_4_lut/A->core/i536_3_lut_4_lut/Z
+                                          SLICE_R17C26A      D0_TO_F0_DELAY   0.252                  4.827  1       
+core/n1268                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i44/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i44/CK   core/keyreg_i0_i45/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i40/Q  (SLICE_R14C24D)
+Path End         : core/keyreg_i0_i40/D  (SLICE_R14C24D)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i40/CK   core/keyreg_i0_i41/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i40/CK->core/keyreg_i0_i40/Q
+                                          SLICE_R14C24D      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[40]                                   NET DELAY        0.712                  4.575  3       
+core/i528_3_lut_4_lut/A->core/i528_3_lut_4_lut/Z
+                                          SLICE_R14C24D      D0_TO_F0_DELAY   0.252                  4.827  1       
+core/n1260                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i40/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i40/CK   core/keyreg_i0_i41/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i38/Q  (SLICE_R18C21A)
+Path End         : core/keyreg_i0_i38/D  (SLICE_R18C21A)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i38/CK   core/keyreg_i0_i39/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i38/CK->core/keyreg_i0_i38/Q
+                                          SLICE_R18C21A      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[38]                                   NET DELAY        0.712                  4.575  3       
+core/i524_3_lut_4_lut/A->core/i524_3_lut_4_lut/Z
+                                          SLICE_R18C21A      D0_TO_F0_DELAY   0.252                  4.827  1       
+core/n1256                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i38/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i38/CK   core/keyreg_i0_i39/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i39/Q  (SLICE_R18C21A)
+Path End         : core/keyreg_i0_i39/D  (SLICE_R18C21A)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i38/CK   core/keyreg_i0_i39/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i39/CK->core/keyreg_i0_i39/Q
+                                          SLICE_R18C21A      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[39]                                   NET DELAY        0.712                  4.575  3       
+core/i526_3_lut_4_lut/A->core/i526_3_lut_4_lut/Z
+                                          SLICE_R18C21A      D1_TO_F1_DELAY   0.252                  4.827  1       
+core/n1258                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i39/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i38/CK   core/keyreg_i0_i39/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i36/Q  (SLICE_R21C20A)
+Path End         : core/keyreg_i0_i36/D  (SLICE_R21C20A)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i36/CK   core/keyreg_i0_i37/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i36/CK->core/keyreg_i0_i36/Q
+                                          SLICE_R21C20A      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[36]                                   NET DELAY        0.712                  4.575  3       
+core/i520_3_lut_4_lut/A->core/i520_3_lut_4_lut/Z
+                                          SLICE_R21C20A      D0_TO_F0_DELAY   0.252                  4.827  1       
+core/n1252                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i36/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i36/CK   core/keyreg_i0_i37/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i35/Q  (SLICE_R16C19C)
+Path End         : core/keyreg_i0_i35/D  (SLICE_R16C19C)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i34/CK   core/keyreg_i0_i35/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i35/CK->core/keyreg_i0_i35/Q
+                                          SLICE_R16C19C      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[35]                                   NET DELAY        0.712                  4.575  3       
+core/i518_3_lut_4_lut/A->core/i518_3_lut_4_lut/Z
+                                          SLICE_R16C19C      D1_TO_F1_DELAY   0.252                  4.827  1       
+core/n1250                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i35/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i34/CK   core/keyreg_i0_i35/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : core/keyreg_i0_i32/Q  (SLICE_R14C18B)
+Path End         : core/keyreg_i0_i32/D  (SLICE_R14C18B)
+Source Clock     : int_osc (R)
+Destination Clock: int_osc (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i32/CK   core/keyreg_i0_i33/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+core/keyreg_i0_i32/CK->core/keyreg_i0_i32/Q
+                                          SLICE_R14C18B      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+core/aes_keyexp/keyreg[32]                                   NET DELAY        0.712                  4.575  3       
+core/i512_3_lut_4_lut/A->core/i512_3_lut_4_lut/Z
+                                          SLICE_R14C18B      D0_TO_F0_DELAY   0.252                  4.827  1       
+core/n1244                                                   NET DELAY        0.000                  4.827  1       
+core/keyreg_i0_i32/D                                         ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  164     
+core/aes_ctrl/int_osc                                        NET DELAY        3.084                  3.084  164     
+{core/keyreg_i0_i32/CK   core/keyreg_i0_i33/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
