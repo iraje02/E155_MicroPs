@@ -4,17 +4,21 @@
 //   Top level module with SPI interface and SPI core
 /////////////////////////////////////////////
 
-module aes(input  logic clk,
-           input  logic sck, 
+module aes(input  logic sck, 
            input  logic sdi,
            output logic sdo,
            input  logic load,
            output logic done);
                     
     logic [127:0] key, plaintext, cyphertext;
+
+		//instantiate HSOC
+		HSOSC #(.CLKHF_DIV(2'b00))
+			hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
             
     aes_spi spi(sck, sdi, sdo, done, key, plaintext, cyphertext);   
-    aes_core core(clk, load, key, plaintext, done, cyphertext);
+    aes_core core(int_osc, load, key, plaintext, done, cyphertext);
+
 endmodule
 
 /////////////////////////////////////////////
