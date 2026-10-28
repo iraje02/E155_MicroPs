@@ -1,0 +1,11 @@
+1 14 aes_controller 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 89 0
+1 9 sbox_sync 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 20 0
+1 12 keyexpansion 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 116 0
+1 8 subbytes 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 131072 0 70 0
+1 9 shiftrows 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 46 0
+1 10 galoismult 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 15 0
+1 9 mixcolumn 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 106 0
+1 10 mixcolumns 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 16 0
+1 12 addroundkeys 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 10 0
+1 8 aes_core 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 98 0
+1 18 testbench_aes_core 4 fast 37 C:/Users/iraje/Downloads/lab7_ir/work 0 0 0 0 61 0
