@@ -4,7 +4,8 @@
 //   Top level module with SPI interface and SPI core
 /////////////////////////////////////////////
 
-module aes(input  logic sck, 
+module aes(//input  logic clk,
+		   input logic sck,
            input  logic sdi,
            output logic sdo,
            input  logic load,
@@ -87,12 +88,19 @@ module aes_core(input  logic         clk,
 	logic enable, lastround;
 	logic [3:0] round;
 	logic [127:0] newkey, newstate, keymuxoutput, statemuxoutput, statereg, keyreg, subbytesoutput, shiftrowsoutput, mixcolumnsoutput, bypassmuxoutput;
-
+	
+	// sychronize load
+	logic load1, loadsync;
+	always_ff@(posedge clk) begin
+		load1 <= load;
+		loadsync <= load1;
+	end
+	
 	//instantiate controller
-	aes_controller aes_ctrl(clk, load, enable, done, round, lastround);
+	aes_controller aes_ctrl(clk, loadsync, enable, done, round, lastround);
 
 	//mux prior to state register
-	assign statemuxoutput = load ? (key ^ plaintext) : newstate;
+	assign statemuxoutput = loadsync ? (key ^ plaintext) : newstate;
 	
 	//state register
 	always_ff @(posedge clk)
@@ -102,7 +110,7 @@ module aes_core(input  logic         clk,
 	assign cyphertext = statereg;
 	
 	//mux prior to key register
-	assign keymuxoutput = load ? key : newkey;
+	assign keymuxoutput = loadsync ? key : newkey;
 	
 	//key register
 	always_ff @(posedge clk)
