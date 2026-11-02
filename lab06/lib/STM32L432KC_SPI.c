@@ -14,12 +14,12 @@ void initSPI(int br, int cpol, int cpha) {
     GPIOA->AFR[0] |= (0b0101 << GPIO_AFRL_AFSEL5_Pos); //PA5 AF5 is SPI clock
     GPIOA->AFR[0] &= ~GPIO_AFRL_AFSEL6_Msk; //clear PA6
     GPIOA->AFR[0] |= (0b0101 << GPIO_AFRL_AFSEL6_Pos); //PA6 AF5 is SPI MISO
-    GPIOA->AFR[0] &= ~GPIO_AFRL_AFSEL7_Msk; //clear PA7
-    GPIOA->AFR[0] |= (0b0101 << GPIO_AFRL_AFSEL7_Pos); //PA7 AF5 is SPI MOSI
+    GPIOB->AFR[0] &= ~GPIO_AFRL_AFSEL5_Msk; //clear PB5
+    GPIOB->AFR[0] |= (0b0101 << GPIO_AFRL_AFSEL5_Pos); //PB5 AF5 is SPI MOSI
 
     pinMode(PA5, GPIO_ALT);
     pinMode(PA6, GPIO_ALT);
-    pinMode(PA7, GPIO_ALT);
+    pinMode(PB5, GPIO_ALT);
 
     SPI1->CR1 |= SPI_CR1_MSTR;  //master configuration
     SPI1->CR1 &= ~SPI_CR1_BR_Msk; // clear existing baud rate field
@@ -39,10 +39,10 @@ void initSPI(int br, int cpol, int cpha) {
     SPI1->CR1 |= SPI_CR1_SPE; //SPI enable
 }
 
-char spiSendReceive(char send) {
-    while (!(SPI1->SR & SPI_SR_TXE)); //wait for TXE flag (whether transmit buffer empty)
-      *(volatile char *) & SPI1->DR = send; //send data to data register
-    while (!(SPI1->SR & SPI_SR_RXNE));  // wait for RXNE  (whether receive buffer not empty)
-      char rec = *(volatile char *)&SPI1->DR; //receive data from data register
-      return rec;
+uint8_t spiSendReceive(uint8_t send) {
+    while(!(SPI1->SR & SPI_SR_TXE)); // Wait until the transmit buffer is empty
+    *(volatile int8_t *) (&SPI1->DR) = send; // Transmit the character over SPI
+    while(!(SPI1->SR & SPI_SR_RXNE)); // Wait until data has been received
+    uint8_t rec = *(volatile uint8_t *) (&SPI1->DR);
+    return rec; // Return received character
 }
