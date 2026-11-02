@@ -1,0 +1,18 @@
+// DS1722.h
+// Ishita Raje
+// iraje@hmc.edu
+// 10/30/2026
+
+#ifndef DS1722_H
+#define DS1722_H
+
+#include <stm32l432xx.h>  // CMSIS device library include
+
+///////////////////////////////////////////////////////////////////////////////
+// Function prototypes
+///////////////////////////////////////////////////////////////////////////////
+
+void initDS1722(void);
+float readTemperature(void);
+
+#endif
