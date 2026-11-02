@@ -77,7 +77,7 @@ int main(void) {
   initDS1722();
 
   while(1) {
-    /* Wait for ESP8266 to send a request.
+      /* Wait for ESP8266 to send a request.
     Requests take the form of '/REQ:<tag>\n', with TAG begin <= 10 characters.
     Therefore the request[] array must be able to contain 18 characters.
     */
@@ -124,5 +124,5 @@ int main(void) {
     sendString(USART, "</p>");
 
     sendString(USART, webpageEnd);
-  }
+    }
 }
