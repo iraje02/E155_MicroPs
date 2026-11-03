@@ -10,13 +10,7 @@
   void initDS1722(void) {
     pinMode(PB4, GPIO_OUTPUT); // chose PB4 as the chip enable CE
     digitalWrite(PB4, PIO_LOW); // CE is active high so start low
-    setResolution(9) // default is 9
-}
-
-void initDS1722(void) {
-    pinMode(DS1722_CE, GPIO_OUTPUT);
-    digitalWrite(DS1722_CE, PIO_LOW); // start deselected
-    setResolution(9);                 // default: 9-bit, continuous conversion
+    setResolution(9); // default is 9
 }
 
 void setResolution(int bits) {
@@ -43,6 +37,6 @@ float readTemperature(void) {
     digitalWrite(PB4, PIO_LOW);
  
     // MSB and LSB is a signed two's-complement value in units of 1/256 degC
-    int16_t raw = (int16_t)((msb << 8) | lsb);
+    int16_t raw = (int16_t)((temperatureMSB << 8) | temperatureLSB);
     return raw / 256.0f;
 }
