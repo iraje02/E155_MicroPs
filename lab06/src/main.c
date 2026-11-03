@@ -1,8 +1,8 @@
 /*
-File: Lab_6_JHB.c
-Author: Josh Brake
-Email: jbrake@hmc.edu
-Date: 9/14/19
+File: lab6_ir.c
+Author: Ishita Raje
+Email: iraje@hmc.edu
+Date: 11/1/2026
 */
 
 
@@ -46,7 +46,7 @@ int inString(char request[], char des[]) {
 	return -1;
 }
 
-// Turns the LED on/off if a button was pressed; otherwise keeps the current state
+// Turns the LED on/off if a button was pressed
 int updateLEDStatus(char request[]) {
 	int led_status = 0;
 	// The request has been received. now process to determine whether to turn the LED on or off
