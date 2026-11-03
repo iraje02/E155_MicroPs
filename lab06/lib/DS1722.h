@@ -13,7 +13,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 void initDS1722(void);
-void setResolution();
+void setResolution(int bits);
 float readTemperature(void);
 
 #endif
