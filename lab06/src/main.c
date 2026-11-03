@@ -117,16 +117,15 @@ int main(void) {
     // Update string with current LED state
     int led_status = updateLEDStatus(request);
 	
-	int newRes = updateResolution(request, resolution);
+    int newRes = updateResolution(request, resolution);
     if (newRes != resolution) {
       resolution = newRes;
       setResolution(resolution);
-      delay_millis(TIM15, 1200);   // wait for a conversion at the new resolution (12-bit max ~1.2 s)
     }
 
-	float temperature = readTemperature();
+    float temperature = readTemperature();
 	
-	char temperatureStr[64];
+    char temperatureStr[64];
     char ledStatusStr[48];
     char resStatusStr[48];
     sprintf(temperatureStr, "<h2>Temperature</h2><p>%.4f &deg;C</p>", temperature);
@@ -146,8 +145,6 @@ int main(void) {
     sendString(USART, "</p>");
 
     // Display temperature
-    sendString(USART, "<h2>Temperature</h2>");
-    sendString(USART, "<p>");
     sendString(USART, temperatureStr);
     sendString(USART, "</p>");
 
