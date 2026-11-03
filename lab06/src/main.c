@@ -118,12 +118,6 @@ int main(void) {
 	  
     // Update string with current LED state
     int led_status = updateLEDStatus(request);
-
-    char ledStatusStr[20];
-    if (led_status == 1)
-      sprintf(ledStatusStr,"LED is on!");
-    else if (led_status == 0)
-      sprintf(ledStatusStr,"LED is off!");
 	
 	int newRes = updateResolution(request, resolution);
     if (newRes != resolution) {
@@ -134,10 +128,10 @@ int main(void) {
 
 	float temperature = readTemperature();
 	
-	char tempStr[64];
+	char temperatureStr[64];
     char ledStatusStr[48];
     char resStatusStr[48];
-    sprintf(tempStr, "<h2>Temperature</h2><p>%.4f &deg;C</p>", temperature);
+    sprintf(temperatureStr, "<h2>Temperature</h2><p>%.4f &deg;C</p>", temperature);
     sprintf(ledStatusStr, "<p>LED is %s</p>", led_status ? "on" : "off");
     sprintf(resStatusStr, "<p>Current resolution: %d-bit</p>", resolution);
 
