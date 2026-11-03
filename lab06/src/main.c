@@ -47,7 +47,6 @@ int inString(char request[], char des[]) {
 }
 
 // Turns the LED on/off if a button was pressed; otherwise keeps the current state
-
 int updateLEDStatus(char request[]) {
 	int led_status = 0;
 	// The request has been received. now process to determine whether to turn the LED on or off
@@ -59,7 +58,6 @@ int updateLEDStatus(char request[]) {
 		digitalWrite(LED_PIN, PIO_HIGH);
 		led_status = 1;
 	}
-
 	return led_status;
 }
 
@@ -138,6 +136,8 @@ int main(void) {
     // finally, transmit the webpage over UART
     sendString(USART, webpageStart); // webpage header code
     sendString(USART, ledStr); // button for controlling LED
+	sendString(USART, resStr);
+    sendString(USART, resStatusStr);
 
     // Display LED status
     sendString(USART, "<h2>LED Status</h2>");
