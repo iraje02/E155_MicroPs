@@ -42,7 +42,7 @@ float readTemperature(void) {
     uint8_t temperatureLSB = spiSendReceive(0x00);
     digitalWrite(PB4, PIO_LOW);
  
-    // MSB:LSB is a signed two's-complement value in units of 1/256 degC
+    // MSB and LSB is a signed two's-complement value in units of 1/256 degC
     int16_t raw = (int16_t)((msb << 8) | lsb);
     return raw / 256.0f;
 }
